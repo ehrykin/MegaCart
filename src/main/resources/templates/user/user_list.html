@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html th:dir="${direction}" th:lang="${lang}" xmlns:th="http://www.thymeleaf.org">
+	
+	<head th:replace="common/head :: head"/>	
+	<body>
+		<div id="container">
+			<header th:replace="common/header :: header"/>		
+			<nav th:replace="common/column_left :: column_left"/>
+
+			<div id="content">
+			  <div class="page-header">
+			    <div class="container-fluid">
+			      <div class="pull-right"><a th:href="${add}" data-toggle="tooltip" th:title="${button_add}" class="btn btn-primary"><i class="fa fa-plus"/></a>
+			        <button type="button" data-toggle="tooltip" th:title="${button_delete}" class="btn btn-danger" onclick="'confirm([[${text_confirm}]]) ? $('#form-user').submit() : false;'"><i class="fa fa-trash-o"/></button>
+			      </div>
+			      <h1 th:text="${heading_title}"/>
+			      <ul class="breadcrumb" th:each="breadcrumb : ${breadcrumbs}">
+			        <li><a th:href="${breadcrumb['href']}" th:text="${breadcrumb['text']}"></a></li>
+			      </ul>
+			    </div>
+			  </div>
+			  <div class="container-fluid">
+			    <div th:if="${error_warning != null}" class="alert alert-danger"><i class="fa fa-exclamation-circle"/>[[${error_warning}]]
+			      	<button type="button" class="close" data-dismiss="alert">&times;</button>
+			    </div>
+			    <div th:if="${success != null}" class="alert alert-success"><i class="fa fa-check-circle"/>[[${success}]]
+			      <button type="button" class="close" data-dismiss="alert">&times;</button>
+			    </div>
+			    <div class="panel panel-default">
+			      <div class="panel-heading">
+			        <h3 class="panel-title"><i class="fa fa-list" th:text="${text_list}"/></h3>
+			      </div>
+			      <div class="panel-body">
+			        <form th:action="${delete}" method="post" enctype="multipart/form-data" id="form-user">
+			          <div class="table-responsive">
+			            <table class="table table-bordered table-hover">
+			              <thead>
+			                <tr>
+			                  <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+			                  <td class="text-left">
+			                    <a th:if="${sort} == 'username'" th:href="${sort_username}" th:class="${#strings.toLowerCase(order)}" th:text="${column_username}"/>
+			                    <a th:if="${sort} != 'username'" th:href="${sort_username}" th:text="${column_username}"/>
+			                  </td>
+			                  <td class="text-left">
+			                    <a th:if="${sort} == 'status'" th:href="${sort_status}" th:class="${#strings.toLowerCase(order)}" th:text="${column_status}"/>
+			                    <a th:if="${sort} != 'status'" th:href="${sort_status}" th:text="${column_status}"/>
+			                  </td>
+			                  <td class="text-left">
+			                    <a th:if="${sort} == 'dateAdded'" th:href="${sort_date_added}" th:class="${#strings.toLowerCase(order)}" th:text="${column_date_added}"/>
+			                    <a th:if="${sort} != 'dateAdded'" th:href="${sort_date_added}" th:text="${column_date_added}"/>
+			                  </td>
+			                  <td class="text-right" th:text="${column_action}"/>
+			                </tr>
+			              </thead>
+			              <tbody>
+			              	<th:block th:if="${users} != null" th:each="user : ${users}">
+				                <tr>
+				                  <td class="text-center">
+				                    <input th:if="${#lists.contains(selected, user['userId'])}" type="checkbox" name="selected[]" th:value="${user['userId']}" checked="checked" />
+				                    <input th:if="${!#lists.contains(selected, user['userId'])}" type="checkbox" name="selected[]" th:value="${user['userId']}" />
+				                  </td>
+				                  <td class="text-left" th:text="${user['username']}"/>
+				                  <td class="text-left" th:text="${user['status']} != 0 ? ${text_enabled} : ${text_disabled}"/>
+				                  <td class="text-left" th:text="${#dates.format(user['dateAdded'], '__#{common.common.date_format_short}__')}"/>
+				                  <td class="text-right"><a th:href="@{/user/edit(user_id=${user['userId']},sort=${sort},order=${order},page=${page},selected=${selected})}" data-toggle="tooltip" th:title="${button_edit}" class="btn btn-primary"><i class="fa fa-pencil"/></a></td>
+				                </tr>
+			              	</th:block>
+			                <tr th:if="${users} == null">
+			                  <td class="text-center" colspan="5" th:text="${text_no_results}"/>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			        </form>
+			        <div class="row">
+			          <div class="col-sm-6 text-left" th:utext="${pagination}"/>
+			          <div class="col-sm-6 text-right" th:text="${results}"/>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		
+			<footer th:replace="common/footer :: footer"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>		
+	</head>
+	<body>
+
+		<header th:fragment="header" id="header" class="navbar navbar-static-top">
+		  <div class="navbar-header">
+		    <a th:if="${logged} != null" type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+		    <a th:href="${home}" class="navbar-brand"><img src="/view/image/logo.png" th:alt="${heading_title}" th:title="${heading_title}" /></a></div>
+		  <ul th:if="${logged} != null" class="nav pull-right">
+		    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span th:if="${alerts} != null and ${alerts} gt 0" class="label label-danger pull-left" th:text="${alerts}"/><i class="fa fa-bell fa-lg"/></a>
+		      <ul class="dropdown-menu dropdown-menu-right alerts-dropdown">
+		        <li class="dropdown-header" th:text="${text_order}"/>
+		        <li><a th:href="${processing_status}" style="display: block; overflow: auto;"><span class="label label-warning pull-right" th:text="${processing_status_total}"/>[[${text_processing_status}]]</a></li>
+		        <li><a th:href="${complete_status}"><span class="label label-success pull-right" th:text="${complete_status_total}"/>[[${text_complete_status}]]</a></li>
+		        <li><a th:href="${return}"><span class="label label-danger pull-right" th:text="${return_total}"/>[[${text_return}]]</a></li>
+		        <li class="divider"></li>
+		        <li class="dropdown-header" th:text="${text_customer}"/>
+		        <li><a th:href="${online}"><span class="label label-success pull-right" th:text="${online_total}"/>[[${text_online}]]</a></li>
+		        <li><a th:href="${customer_approval}"><span class="label label-danger pull-right" th:text="${customer_total}"/>[[${text_approval}]]</a></li>
+		        <li class="divider"></li>
+		        <li class="dropdown-header" th:text="${text_product}"/>
+		        <li><a th:href="${product}"><span class="label label-danger pull-right" th:text="${product_total}"/>[[${text_stock}]]</a></li>
+		        <li><a th:href="${review}"><span class="label label-danger pull-right" th:text="${review_total}"/>[[${text_review}]]</a></li>
+		        <li class="divider"/>
+		        <li class="dropdown-header" th:text="${text_affiliate}"/>
+		        <li><a th:href="${affiliate_approval}"><span class="label label-danger pull-right" th:text="${affiliate_total}"/>[[${text_approval}]]</a></li>
+		      </ul>
+		    </li>
+		    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home fa-lg"/></a>
+		      <ul class="dropdown-menu dropdown-menu-right">
+		        <li class="dropdown-header" th:text="${text_store}"/>
+		        <th:block th:each="store : ${stores}">
+		        	<li><a th:href="${store['href']}" target="_blank" th:text="${store['name']}"/></li>
+		        </th:block>
+		      </ul>
+		    </li>
+		    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-life-ring fa-lg"></i></a>
+		      <ul class="dropdown-menu dropdown-menu-right">
+		        <li class="dropdown-header" th:text="${text_help}"/>
+		        <li><a href="http://www.megacart.com" target="_blank" th:text="${text_homepage}"/></li>
+		        <li><a href="http://docs.megacart.com" target="_blank" th:text="${text_documentation}"/></li>
+		        <li><a href="http://forum.megacart.com" target="_blank" th:text="${text_support}"/></li>
+		      </ul>
+		    </li>
+		    <li><a th:href="${logout}"><span class="hidden-xs hidden-sm hidden-md" th:text="${text_logout}"/> <i class="fa fa-sign-out fa-lg"/></a></li>
+		  </ul>
+		</header>
+
+	</body>
+</html>

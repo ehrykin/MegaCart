@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		
+		<nav th:fragment="column_left" id="column-left">
+		  <div id="profile">
+		    <div>
+		      <img th:if="${image} != null" th:src="${image}" th:alt="${firstname} + ' ' + ${lastname}" th:title="${username}" class="img-circle" />
+		      <i th:if="${image} == null" class="fa fa-opencart"></i>
+		    </div>
+		    <div>
+		      <h4 th:text="${firstname} + ${lastname}"/>
+		      <small th:text="${user_group}"/>
+		    </div>
+		  </div>
+		  <ul id="menu">
+		  	<th:block th:each="menu : ${menus}">
+		    <li th:id="${menu['id']}">
+		      <a th:if="${menu['href']} != null" th:href="${menu['href']}"><i th:class="'fa' + ${menu['icon']} + 'fw'"/><span th:text="${menu['name']}"/></a>
+		      <a th:if="${menu['href']} == null" class="parent"><i th:class="'fa' + ${menu['icon']} + 'fw'"/><span th:text="${menu['name']}"/></a>
+		      <ul th:if="${menu['children']} != null" th:each="children_1 : ${menu['children']}">
+		        <li>
+		          <a th:if="${children_1['href']} != null" th:href="${children_1['href']}" th:text="${children_1['name']}"/>
+		          <a th:if="${children_1['href']} == null" class="parent" th:text="${children_1['name']}"/>
+		          <ul th:if="${children_1['children']} != null" th:each="children_2 : ${children_1['children']}">
+		            <li>
+		              <a th:if="${children_2['href']} != null" th:href="${children_2['href']}" th:text="${children_2['name']}"/>
+		              <a th:if="${children_2['href']} == null" class="parent" th:text="${children_2['name']}"/>
+		              <ul th:if="${children_2['children']} != null" th:each="children_3 : ${children_2['children']}">
+		                <li><a th:href="${children_3['href']}" th:text="${children_3['name']}"/></li>
+		              </ul>
+		            </li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </li>
+		    </th:block>
+		  </ul>
+		  <div id="stats">
+		    <ul>
+		      <li>
+		        <div>[[${text_complete_status}]]<span class="pull-right" th:text="${complete_status} + '%'"/></div>
+		        <div class="progress">
+		          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="[[${complete_status}]]" aria-valuemin="0" aria-valuemax="100" style="width: [[${complete_status}]]%"> <span class="sr-only">[[${complete_status}]]%</span></div>
+		        </div>
+		      </li>
+		      <li>
+		        <div>[[${text_processing_status}]]<span class="pull-right" th:text="${processing_status} + '%'"/></div>
+		        <div class="progress">
+		          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="[[{$processing_status}]]" aria-valuemin="0" aria-valuemax="100" style="width: [[${processing_status}]]%"> <span class="sr-only">[[${processing_status}]]%</span></div>
+		        </div>
+		      </li>
+		      <li>
+		        <div>[[${text_other_status}]]<span class="pull-right" th:text="${other_status} + '%'"/></div>
+		        <div class="progress">
+		          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="[[${other_status}]]" aria-valuemin="0" aria-valuemax="100" style="width: [[${other_status}]]%"> <span class="sr-only">[[${other_status}]]%</span></div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+		
+	</body>
+</html>

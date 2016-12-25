@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+	
+		<footer th:fragment="footer" id="footer" th:if="${text_footer} != null or ${text_version} != null" 
+			th:utext="${text_footer} + '&lt;br/&gt;' + ${text_version}">
+		</footer>
+	
+	</body>
+</html>

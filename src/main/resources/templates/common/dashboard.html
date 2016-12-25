@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html th:dir="${direction}" th:lang="${lang}" xmlns:th="http://www.thymeleaf.org">
+	
+	<head th:replace="common/head :: head"/>	
+	<body>
+		<div id="container">
+			<header th:replace="common/header :: header"/>		
+			<nav th:replace="common/column_left :: column_left"/>
+
+			<div id="content">
+			  <div class="page-header">
+			    <div class="container-fluid">
+			      <h1 th:text="${heading_title}"/>
+			      <ul class="breadcrumb" th:each="breadcrumb : ${breadcrumbs}">
+			        <li><a th:href="${breadcrumb['href']}" th:text="${breadcrumb['text']}"/></li>
+			      </ul>
+			    </div>
+			  </div>
+			  <div class="container-fluid">
+			    <div th:if="${error_install}" class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>[[${error_install}]]
+			      <button type="button" class="close" data-dismiss="alert">&times;</button>
+			    </div>
+			    <th:block th:each="row : ${rows}">
+				    <div class="row" th:each="row1 : ${dashboard_1}">
+				    	<th:block th:with="class = 'col-lg-' + ${dashboard_1['width']} + ' col-md-3 col-sm-6'" th:each="row2 : ${dashboard_2}">
+				    		<div th:if="$dashboard_2['width'] gt 3" th:with="class = 'col-lg-' + ${dashboard_1['width']} + ' col-md-12 col-sm-12'" 
+				    				th:class="${class}" th:text="${dashboard_1['output']}"/>
+				      		<div th:if="$dashboard_2['width'] le 3" th:class="${class}" th:text="${dashboard_1['output']}"/>
+				    	</th:block>
+				    </div>
+			    </th:block>
+			  </div>
+			</div>
+		
+			<footer th:replace="common/footer :: footer"/>
+		</div>
+	</body>
+</html>

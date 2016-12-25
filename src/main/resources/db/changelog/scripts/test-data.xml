@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+	http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="ekhrykin" id="test-data-1">
+		<insert	tableName="mc_user">
+			<column name="user_id" value="1000001" />
+			<column name="user_group_id" value="1" />
+			<column name="username" value="ekhrykin" />
+			<column name="password" value="ekhrykin" />
+			<column name="salt" value="123456789" />
+			<column name="firstname" value="Evgeniy" />
+			<column name="lastname" value="Khrykin" />
+			<column name="email" value="gohnxp@gmail.com" />
+			<column name="image" value="/view/image/checkmark.png" />
+			<column name="code" value="1000001" />
+			<column name="ip" value="ekhrykinIp" />
+			<column name="status" value="1" />
+			<column name="date_added" value="2009-02-03 16:06:50" />
+		</insert>
+	</changeSet>
+	<changeSet author="ekhrykin" id="test-data-2">
+		<insert	tableName="mc_user">
+			<column name="user_id" value="1000002" />
+			<column name="user_group_id" value="2" />
+			<column name="username" value="user1" />
+			<column name="password" value="user1" />
+			<column name="salt" value="123456789" />
+			<column name="firstname" value="user1" />
+			<column name="lastname" value="user1" />
+			<column name="email" value="gohnxp@gmail.com" />
+			<column name="image" value="/view/image/checkmark.png" />
+			<column name="code" value="1000001" />
+			<column name="ip" value="ekhrykinIp" />
+			<column name="status" value="0" />
+			<column name="date_added" value="2009-04-05 20:00:30" />
+		</insert>
+	</changeSet>
+</databaseChangeLog>

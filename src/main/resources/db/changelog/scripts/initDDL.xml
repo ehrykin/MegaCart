@@ -1,0 +1,3207 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+ <changeSet author="ekhrykin (generated)" id="0">
+        <createTable tableName="hibernate_sequences">
+            <column name="sequence_next_hi_value" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sequence_name" type="VARCHAR(128))">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="1">
+        <createTable tableName="mc_address">
+            <column autoIncrement="true" name="address_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_1" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_2" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="postcode" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="country_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="custom_field" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="2">
+        <createTable tableName="mc_affiliate">
+            <column autoIncrement="true" name="affiliate_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fax" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salt" type="VARCHAR(9)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="website" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_1" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_2" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="postcode" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.00" name="commission" type="DECIMAL(4, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tax" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment" type="VARCHAR(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cheque" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paypal" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bank_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bank_branch_number" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bank_swift_code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bank_account_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bank_account_number" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="approved" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="3">
+        <createTable tableName="mc_affiliate_activity">
+            <column autoIncrement="true" name="affiliate_activity_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="affiliate_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="4">
+        <createTable tableName="mc_affiliate_login">
+            <column autoIncrement="true" name="affiliate_login_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="5">
+        <createTable tableName="mc_affiliate_transaction">
+            <column autoIncrement="true" name="affiliate_transaction_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="affiliate_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="6">
+        <createTable tableName="mc_api">
+            <column autoIncrement="true" name="api_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="7">
+        <createTable tableName="mc_api_ip">
+            <column autoIncrement="true" name="api_ip_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="api_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="8">
+        <createTable tableName="mc_api_session">
+            <column autoIncrement="true" name="api_session_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="api_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="session_id" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="session_name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="9">
+        <createTable tableName="mc_attribute">
+            <column autoIncrement="true" name="attribute_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="attribute_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="10">
+        <createTable tableName="mc_attribute_description">
+            <column name="attribute_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="11">
+        <createTable tableName="mc_attribute_group">
+            <column autoIncrement="true" name="attribute_group_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="12">
+        <createTable tableName="mc_attribute_group_description">
+            <column name="attribute_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="13">
+        <createTable tableName="mc_banner">
+            <column autoIncrement="true" name="banner_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="14">
+        <createTable tableName="mc_banner_image">
+            <column autoIncrement="true" name="banner_image_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="banner_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="link" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="15">
+        <createTable tableName="mc_cart">
+            <column autoIncrement="true" name="cart_id" type="INT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="api_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="session_id" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="16">
+        <createTable tableName="mc_category">
+            <column autoIncrement="true" name="category_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="parent_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="top" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="column" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="17">
+        <createTable tableName="mc_category_description">
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_keyword" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="18">
+        <createTable tableName="mc_category_filter">
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filter_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="19">
+        <createTable tableName="mc_category_path">
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="level" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="20">
+        <createTable tableName="mc_category_to_layout">
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="layout_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="21">
+        <createTable tableName="mc_category_to_store">
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="22">
+        <createTable tableName="mc_country">
+            <column autoIncrement="true" name="country_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iso_code_2" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iso_code_3" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_format" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="postcode_required" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="23">
+        <createTable tableName="mc_coupon">
+            <column autoIncrement="true" name="coupon_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="discount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="logged" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_start" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_end" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uses_total" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uses_customer" type="VARCHAR(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="24">
+        <createTable tableName="mc_coupon_category">
+            <column name="coupon_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="25">
+        <createTable tableName="mc_coupon_history">
+            <column autoIncrement="true" name="coupon_history_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="coupon_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="26">
+        <createTable tableName="mc_coupon_product">
+            <column autoIncrement="true" name="coupon_product_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="coupon_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="27">
+        <createTable tableName="mc_currency">
+            <column autoIncrement="true" name="currency_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="symbol_left" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="symbol_right" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="decimal_place" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="28">
+        <createTable tableName="mc_custom_field">
+            <column autoIncrement="true" name="custom_field_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="validation" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(7)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="29">
+        <createTable tableName="mc_custom_field_customer_group">
+            <column name="custom_field_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="required" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="30">
+        <createTable tableName="mc_custom_field_description">
+            <column name="custom_field_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="31">
+        <createTable tableName="mc_custom_field_value">
+            <column autoIncrement="true" name="custom_field_value_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="custom_field_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="32">
+        <createTable tableName="mc_custom_field_value_description">
+            <column name="custom_field_value_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="custom_field_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="33">
+        <createTable tableName="mc_customer">
+            <column autoIncrement="true" name="customer_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fax" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salt" type="VARCHAR(9)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cart" type="TEXT"/>
+            <column name="wishlist" type="TEXT"/>
+            <column defaultValueBoolean="false" name="newsletter" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="address_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="custom_field" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="approved" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="safe" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="34">
+        <createTable tableName="mc_customer_activity">
+            <column autoIncrement="true" name="customer_activity_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="35">
+        <createTable tableName="mc_customer_group">
+            <column autoIncrement="true" name="customer_group_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="approval" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="36">
+        <createTable tableName="mc_customer_group_description">
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="37">
+        <createTable tableName="mc_customer_history">
+            <column autoIncrement="true" name="customer_history_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="38">
+        <createTable tableName="mc_customer_ip">
+            <column autoIncrement="true" name="customer_ip_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="39">
+        <createTable tableName="mc_customer_login">
+            <column autoIncrement="true" name="customer_login_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="40">
+        <createTable tableName="mc_customer_online">
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="referer" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="41">
+        <createTable tableName="mc_customer_reward">
+            <column autoIncrement="true" name="customer_reward_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="points" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="42">
+        <createTable tableName="mc_customer_search">
+            <column autoIncrement="true" name="customer_search_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="keyword" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="INT"/>
+            <column name="sub_category" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="products" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="43">
+        <createTable tableName="mc_customer_transaction">
+            <column autoIncrement="true" name="customer_transaction_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="44">
+        <createTable tableName="mc_customer_wishlist">
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="45">
+        <createTable tableName="mc_download">
+            <column autoIncrement="true" name="download_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="filename" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mask" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="46">
+        <createTable tableName="mc_download_description">
+            <column name="download_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="47">
+        <createTable tableName="mc_event">
+            <column autoIncrement="true" name="event_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="action" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="48">
+        <createTable tableName="mc_extension">
+            <column autoIncrement="true" name="extension_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="49">
+        <createTable tableName="mc_filter">
+            <column autoIncrement="true" name="filter_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="filter_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="50">
+        <createTable tableName="mc_filter_description">
+            <column name="filter_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filter_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="51">
+        <createTable tableName="mc_filter_group">
+            <column autoIncrement="true" name="filter_group_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="52">
+        <createTable tableName="mc_filter_group_description">
+            <column name="filter_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="53">
+        <createTable tableName="mc_geo_zone">
+            <column autoIncrement="true" name="geo_zone_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="54">
+        <createTable tableName="mc_information">
+            <column autoIncrement="true" name="information_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="bottom" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="55">
+        <createTable tableName="mc_information_description">
+            <column name="information_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_keyword" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="56">
+        <createTable tableName="mc_information_to_layout">
+            <column name="information_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="layout_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="57">
+        <createTable tableName="mc_information_to_store">
+            <column name="information_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="58">
+        <createTable tableName="mc_language">
+            <column autoIncrement="true" name="language_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="locale" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="directory" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="59">
+        <createTable tableName="mc_layout">
+            <column autoIncrement="true" name="layout_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="60">
+        <createTable tableName="mc_layout_module">
+            <column autoIncrement="true" name="layout_module_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="layout_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position" type="VARCHAR(14)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="61">
+        <createTable tableName="mc_layout_route">
+            <column autoIncrement="true" name="layout_route_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="layout_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="route" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="62">
+        <createTable tableName="mc_length_class">
+            <column autoIncrement="true" name="length_class_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="value" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="63">
+        <createTable tableName="mc_length_class_description">
+            <column name="length_class_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="64">
+        <createTable tableName="mc_location">
+            <column autoIncrement="true" name="location_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fax" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="geocode" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="open" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="65">
+        <createTable tableName="mc_manufacturer">
+            <column autoIncrement="true" name="manufacturer_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="66">
+        <createTable tableName="mc_manufacturer_to_store">
+            <column name="manufacturer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="67">
+        <createTable tableName="mc_marketing">
+            <column autoIncrement="true" name="marketing_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="clicks" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="68">
+        <createTable tableName="mc_menu">
+            <column autoIncrement="true" name="menu_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="link" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="69">
+        <createTable tableName="mc_menu_description">
+            <column name="menu_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="70">
+        <createTable tableName="mc_menu_module">
+            <column name="menu_module_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="menu_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="71">
+        <createTable tableName="mc_modification">
+            <column autoIncrement="true" name="modification_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="link" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="xml" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="72">
+        <createTable tableName="mc_module">
+            <column autoIncrement="true" name="module_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="setting" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="73">
+        <createTable tableName="mc_option">
+            <column autoIncrement="true" name="option_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="74">
+        <createTable tableName="mc_option_description">
+            <column name="option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="75">
+        <createTable tableName="mc_option_value">
+            <column autoIncrement="true" name="option_value_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="76">
+        <createTable tableName="mc_option_value_description">
+            <column name="option_value_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="77">
+        <createTable tableName="mc_order">
+            <column autoIncrement="true" name="order_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="invoice_no" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="invoice_prefix" type="VARCHAR(26)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_url" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fax" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="custom_field" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_company" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_address_1" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_address_2" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_city" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_postcode" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_country" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_country_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_zone" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_address_format" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_custom_field" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_method" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_code" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_company" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_address_1" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_address_2" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_city" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_postcode" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_country" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_country_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_zone" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_address_format" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_custom_field" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_method" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shipping_code" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="total" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="order_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="affiliate_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commission" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="marketing_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tracking" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_code" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="1.00000000" name="currency_value" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="forwarded_ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_agent" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="accept_language" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="78">
+        <createTable tableName="mc_order_custom_field">
+            <column autoIncrement="true" name="order_custom_field_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="custom_field_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="custom_field_value_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="79">
+        <createTable tableName="mc_order_history">
+            <column autoIncrement="true" name="order_history_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="notify" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="80">
+        <createTable tableName="mc_order_option">
+            <column autoIncrement="true" name="order_option_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="product_option_value_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="81">
+        <createTable tableName="mc_order_product">
+            <column autoIncrement="true" name="order_product_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="price" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="total" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="tax" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reward" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="82">
+        <createTable tableName="mc_order_recurring">
+            <column autoIncrement="true" name="order_recurring_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reference" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_frequency" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_cycle" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_duration" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_price" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_frequency" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_cycle" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_duration" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_price" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="83">
+        <createTable tableName="mc_order_recurring_transaction">
+            <column autoIncrement="true" name="order_recurring_transaction_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_recurring_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reference" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="84">
+        <createTable tableName="mc_order_status">
+            <column autoIncrement="true" name="order_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="85">
+        <createTable tableName="mc_order_total">
+            <column autoIncrement="true" name="order_total_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="value" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="86">
+        <createTable tableName="mc_order_voucher">
+            <column autoIncrement="true" name="order_voucher_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voucher_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="from_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="from_email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voucher_theme_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="87">
+        <createTable tableName="mc_product">
+            <column autoIncrement="true" name="product_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="model" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sku" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="upc" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ean" type="VARCHAR(14)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jan" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="VARCHAR(17)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mpn" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="manufacturer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="shipping" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="price" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="points" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tax_class_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_available" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.00000000" name="weight" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="weight_class_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.00000000" name="length" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.00000000" name="width" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.00000000" name="height" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="length_class_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="subtract" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="minimum" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="viewed" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="88">
+        <createTable tableName="mc_product_attribute">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attribute_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="89">
+        <createTable tableName="mc_product_description">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tag" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meta_keyword" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="90">
+        <createTable tableName="mc_product_discount">
+            <column autoIncrement="true" name="product_discount_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="priority" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="price" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_start" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_end" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="91">
+        <createTable tableName="mc_product_filter">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filter_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="92">
+        <createTable tableName="mc_product_image">
+            <column autoIncrement="true" name="product_image_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="93">
+        <createTable tableName="mc_product_option">
+            <column autoIncrement="true" name="product_option_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="required" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="94">
+        <createTable tableName="mc_product_option_value">
+            <column autoIncrement="true" name="product_option_value_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="option_value_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subtract" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price_prefix" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="points" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="points_prefix" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weight" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weight_prefix" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="95">
+        <createTable tableName="mc_product_recurring">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recurring_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="96">
+        <createTable tableName="mc_product_related">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="related_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="97">
+        <createTable tableName="mc_product_reward">
+            <column autoIncrement="true" name="product_reward_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="points" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="98">
+        <createTable tableName="mc_product_special">
+            <column autoIncrement="true" name="product_special_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="priority" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="price" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_start" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="0000-00-00" name="date_end" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="99">
+        <createTable tableName="mc_product_to_category">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="100">
+        <createTable tableName="mc_product_to_download">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="download_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="101">
+        <createTable tableName="mc_product_to_layout">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="layout_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="102">
+        <createTable tableName="mc_product_to_store">
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="103">
+        <createTable tableName="mc_recurring">
+            <column autoIncrement="true" name="recurring_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="price" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+<!--             <column name="frequency" type="ENUM('day', 'week', 'semi_month', 'month', 'year')"> -->
+            <column name="frequency" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration" type="INT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cycle" type="INT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_status" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_price" type="DECIMAL(10, 4)">
+                <constraints nullable="false"/>
+            </column>
+<!--             <column name="trial_frequency" type="ENUM('day', 'week', 'semi_month', 'month', 'year')"> -->
+            <column name="trial_frequency" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_duration" type="INT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trial_cycle" type="INT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sort_order" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="104">
+        <createTable tableName="mc_recurring_description">
+            <column name="recurring_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="105">
+        <createTable tableName="mc_return">
+            <column autoIncrement="true" name="return_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="opened" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="return_reason_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="return_action_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="return_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT"/>
+            <column defaultValue="0000-00-00" name="date_ordered" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="106">
+        <createTable tableName="mc_return_action">
+            <column autoIncrement="true" name="return_action_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="107">
+        <createTable tableName="mc_return_history">
+            <column autoIncrement="true" name="return_history_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="return_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="return_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="notify" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="108">
+        <createTable tableName="mc_return_reason">
+            <column autoIncrement="true" name="return_reason_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="109">
+        <createTable tableName="mc_return_status">
+            <column autoIncrement="true" name="return_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="110">
+        <createTable tableName="mc_review">
+            <column autoIncrement="true" name="review_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="product_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="111">
+        <createTable tableName="mc_setting">
+            <column autoIncrement="true" name="setting_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="serialized" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="112">
+        <createTable tableName="mc_stock_status">
+            <column autoIncrement="true" name="stock_status_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="113">
+        <createTable tableName="mc_store">
+            <column autoIncrement="true" name="store_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ssl" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="114">
+        <createTable tableName="mc_tax_class">
+            <column autoIncrement="true" name="tax_class_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="115">
+        <createTable tableName="mc_tax_rate">
+            <column autoIncrement="true" name="tax_rate_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueNumeric="0" name="geo_zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="0.0000" name="rate" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="116">
+        <createTable tableName="mc_tax_rate_to_customer_group">
+            <column name="tax_rate_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="117">
+        <createTable tableName="mc_tax_rule">
+            <column autoIncrement="true" name="tax_rule_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="tax_class_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tax_rate_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="based" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="priority" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="118">
+        <createTable tableName="mc_theme">
+            <column autoIncrement="true" name="theme_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="theme" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="route" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="119">
+        <createTable tableName="mc_translation">
+            <column autoIncrement="true" name="translation_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="route" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="120">
+        <createTable tableName="mc_upload">
+            <column autoIncrement="true" name="upload_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filename" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="121">
+        <createTable tableName="mc_url_alias">
+            <column autoIncrement="true" name="url_alias_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="query" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="keyword" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="122">
+        <createTable tableName="mc_user">
+            <column autoIncrement="true" name="user_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_group_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salt" type="VARCHAR(9)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastname" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="123">
+        <createTable tableName="mc_user_group">
+            <column autoIncrement="true" name="user_group_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permission" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="124">
+        <createTable tableName="mc_voucher">
+            <column autoIncrement="true" name="voucher_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="from_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="from_email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_email" type="VARCHAR(96)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voucher_theme_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="125">
+        <createTable tableName="mc_voucher_history">
+            <column autoIncrement="true" name="voucher_history_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="voucher_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DECIMAL(15, 4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="126">
+        <createTable tableName="mc_voucher_theme">
+            <column autoIncrement="true" name="voucher_theme_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="image" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="127">
+        <createTable tableName="mc_voucher_theme_description">
+            <column name="voucher_theme_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="128">
+        <createTable tableName="mc_weight_class">
+            <column autoIncrement="true" name="weight_class_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column defaultValueComputed="0.00000000" name="value" type="DECIMAL(15, 8)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="129">
+        <createTable tableName="mc_weight_class_description">
+            <column name="weight_class_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="130">
+        <createTable tableName="mc_zone">
+            <column autoIncrement="true" name="zone_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="country_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="131">
+        <createTable tableName="mc_zone_to_geo_zone">
+            <column autoIncrement="true" name="zone_to_geo_zone_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="country_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="geo_zone_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_added" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_modified" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="132">
+        <addPrimaryKey columnNames="attribute_id, language_id" constraintName="PRIMARY1" tableName="mc_attribute_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="133">
+        <addPrimaryKey columnNames="attribute_group_id, language_id" constraintName="PRIMARY2" tableName="mc_attribute_group_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="134">
+        <addPrimaryKey columnNames="category_id, language_id" constraintName="PRIMARY3" tableName="mc_category_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="135">
+        <addPrimaryKey columnNames="category_id, filter_id" constraintName="PRIMARY4" tableName="mc_category_filter"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="136">
+        <addPrimaryKey columnNames="category_id, path_id" constraintName="PRIMARY5" tableName="mc_category_path"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="137">
+        <addPrimaryKey columnNames="category_id, store_id" constraintName="PRIMARY6" tableName="mc_category_to_layout"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="138">
+        <addPrimaryKey columnNames="category_id, store_id" constraintName="PRIMARY7" tableName="mc_category_to_store"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="139">
+        <addPrimaryKey columnNames="coupon_id, category_id" constraintName="PRIMARY8" tableName="mc_coupon_category"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="140">
+        <addPrimaryKey columnNames="custom_field_id, customer_group_id" constraintName="PRIMARY9" tableName="mc_custom_field_customer_group"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="141">
+        <addPrimaryKey columnNames="custom_field_id, language_id" constraintName="PRIMARY10" tableName="mc_custom_field_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="142">
+        <addPrimaryKey columnNames="custom_field_value_id, language_id" constraintName="PRIMARY11" tableName="mc_custom_field_value_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="143">
+        <addPrimaryKey columnNames="customer_group_id, language_id" constraintName="PRIMARY12" tableName="mc_customer_group_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="144">
+        <addPrimaryKey columnNames="ip" constraintName="PRIMARY13" tableName="mc_customer_online"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="145">
+        <addPrimaryKey columnNames="customer_id, product_id" constraintName="PRIMARY14" tableName="mc_customer_wishlist"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="146">
+        <addPrimaryKey columnNames="download_id, language_id" constraintName="PRIMARY15" tableName="mc_download_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="147">
+        <addPrimaryKey columnNames="filter_id, language_id" constraintName="PRIMARY16" tableName="mc_filter_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="148">
+        <addPrimaryKey columnNames="filter_group_id, language_id" constraintName="PRIMARY17" tableName="mc_filter_group_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="149">
+        <addPrimaryKey columnNames="information_id, language_id" constraintName="PRIMARY18" tableName="mc_information_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="150">
+        <addPrimaryKey columnNames="information_id, store_id" constraintName="PRIMARY19" tableName="mc_information_to_layout"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="151">
+        <addPrimaryKey columnNames="information_id, store_id" constraintName="PRIMARY20" tableName="mc_information_to_store"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="152">
+        <addPrimaryKey columnNames="length_class_id, language_id" constraintName="PRIMARY21" tableName="mc_length_class_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="153">
+        <addPrimaryKey columnNames="manufacturer_id, store_id" constraintName="PRIMARY22" tableName="mc_manufacturer_to_store"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="154">
+        <addPrimaryKey columnNames="menu_id, language_id" constraintName="PRIMARY23" tableName="mc_menu_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="155">
+        <addPrimaryKey columnNames="menu_module_id" constraintName="PRIMARY24" tableName="mc_menu_module"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="156">
+        <addPrimaryKey columnNames="option_id, language_id" constraintName="PRIMARY25" tableName="mc_option_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="157">
+        <addPrimaryKey columnNames="option_value_id, language_id" constraintName="PRIMARY26" tableName="mc_option_value_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="158">
+        <addPrimaryKey columnNames="order_status_id, language_id" constraintName="PRIMARY27" tableName="mc_order_status"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="159">
+        <addPrimaryKey columnNames="product_id, attribute_id, language_id" constraintName="PRIMARY28" tableName="mc_product_attribute"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="160">
+        <addPrimaryKey columnNames="product_id, language_id" constraintName="PRIMARY29" tableName="mc_product_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="161">
+        <addPrimaryKey columnNames="product_id, filter_id" constraintName="PRIMARY30" tableName="mc_product_filter"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="162">
+        <addPrimaryKey columnNames="product_id, recurring_id, customer_group_id" constraintName="PRIMARY31" tableName="mc_product_recurring"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="163">
+        <addPrimaryKey columnNames="product_id, related_id" constraintName="PRIMARY32" tableName="mc_product_related"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="164">
+        <addPrimaryKey columnNames="product_id, category_id" constraintName="PRIMARY33" tableName="mc_product_to_category"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="165">
+        <addPrimaryKey columnNames="product_id, download_id" constraintName="PRIMARY34" tableName="mc_product_to_download"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="166">
+        <addPrimaryKey columnNames="product_id, store_id" constraintName="PRIMARY35" tableName="mc_product_to_layout"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="167">
+        <addPrimaryKey columnNames="product_id, store_id" constraintName="PRIMARY36" tableName="mc_product_to_store"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="168">
+        <addPrimaryKey columnNames="recurring_id, language_id" constraintName="PRIMARY37" tableName="mc_recurring_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="169">
+        <addPrimaryKey columnNames="return_action_id, language_id" constraintName="PRIMARY38" tableName="mc_return_action"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="170">
+        <addPrimaryKey columnNames="return_reason_id, language_id" constraintName="PRIMARY39" tableName="mc_return_reason"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="171">
+        <addPrimaryKey columnNames="return_status_id, language_id" constraintName="PRIMARY40" tableName="mc_return_status"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="172">
+        <addPrimaryKey columnNames="stock_status_id, language_id" constraintName="PRIMARY41" tableName="mc_stock_status"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="173">
+        <addPrimaryKey columnNames="tax_rate_id, customer_group_id" constraintName="PRIMARY42" tableName="mc_tax_rate_to_customer_group"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="174">
+        <addPrimaryKey columnNames="voucher_theme_id, language_id" constraintName="PRIMARY43" tableName="mc_voucher_theme_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="175">
+        <addPrimaryKey columnNames="weight_class_id, language_id" constraintName="PRIMARY44" tableName="mc_weight_class_description"/>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="176">
+        <createIndex indexName="cart_id" tableName="mc_cart">
+            <column name="api_id"/>
+            <column name="customer_id"/>
+            <column name="session_id"/>
+            <column name="product_id"/>
+            <column name="recurring_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="177">
+        <createIndex indexName="category_id" tableName="mc_product_to_category">
+            <column name="category_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="178">
+        <createIndex indexName="customer_id" tableName="mc_address">
+            <column name="customer_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="179">
+        <createIndex indexName="email1" tableName="mc_affiliate_login">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="180">
+        <createIndex indexName="email2" tableName="mc_customer_login">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="181">
+        <createIndex indexName="ip" tableName="mc_affiliate_login">
+            <column name="ip"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="182">
+        <createIndex indexName="ip1" tableName="mc_customer_ip">
+            <column name="ip"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="183">
+        <createIndex indexName="ip2" tableName="mc_customer_login">
+            <column name="ip"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="184">
+        <createIndex indexName="keyword" tableName="mc_url_alias">
+            <column name="keyword"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="185">
+        <createIndex indexName="menu_id" tableName="mc_menu_module">
+            <column name="menu_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="186">
+        <createIndex indexName="name1" tableName="mc_category_description">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="187">
+        <createIndex indexName="name2" tableName="mc_language">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="188">
+        <createIndex indexName="name3" tableName="mc_location">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="189">
+        <createIndex indexName="name4" tableName="mc_product_description">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="190">
+        <createIndex indexName="order_id" tableName="mc_order_total">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="191">
+        <createIndex indexName="parent_id" tableName="mc_category">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="192">
+        <createIndex indexName="product_id1" tableName="mc_product_discount">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="193">
+        <createIndex indexName="product_id2" tableName="mc_product_image">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="194">
+        <createIndex indexName="product_id3" tableName="mc_product_special">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="195">
+        <createIndex indexName="product_id4" tableName="mc_review">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="ekhrykin (generated)" id="196">
+        <createIndex indexName="query" tableName="mc_url_alias">
+            <column name="query"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
